@@ -1,0 +1,9 @@
+---
+title: Reproducible slides with Quarto and continuous deployment via GitHub actions
+---
+
+The materials here support a talk at the [Spatial Data Science across Languages (SDSL)](https://spatial-data-science.github.io/2024/) conference 2024.
+
+See the [slides here](slides) and in the dropdown menu above.
+
+See the source code at [github.com/robinlovelace](https://github.com/Robinlovelace/reproducible-project-template).
