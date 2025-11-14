@@ -43,5 +43,5 @@ If you encounter installation issues:
 
 ::: {.callout-tip}
 ## Pro Tip
-if you run into installation issues before the session, don't spend too much time troubleshooting. We can help you during the practical!
+If you run into installation issues before the session, don't spend too much time troubleshooting. We can help you during the practical!
 :::
