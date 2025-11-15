@@ -31,7 +31,7 @@ Understand your data before analysis
 
 ### View Structure and Size
 
-The fist step in exploring a dataset is to understand its structure and size.
+The first step in exploring a dataset is to understand its structure and size.
 
 ```r
 # View dimensions
