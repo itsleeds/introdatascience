@@ -364,7 +364,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Create box plot with individual points
 sns.boxplot(data=df, x='cylinders', y='mpg', ax=ax, palette='Set2')
 sns.stripplot(data=df, x='cylinders', y='mpg', ax=ax, 
-              colour='black', alpha=0.3, size=3)
+              color='black', alpha=0.3, size=3)
 
 # Add labels
 ax.set_title('MPG Distribution by Number of Cylinders')
