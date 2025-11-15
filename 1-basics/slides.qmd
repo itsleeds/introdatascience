@@ -240,7 +240,7 @@ first_element <- vec[1]        # 10
 subset <- vec[2:4]             # 20, 30, 40
 df <- data.frame(
   a = 1:5,
- b = 6:10,
+  b = 6:10,
  c = letters[1:5])
 df$a  # access column `a`
 df[1, ]   # access first row
