@@ -4,7 +4,7 @@ format: revealjs
 
 # Welcome to the Fundamentals!
 
-This section covers the essential you need to get started with the concepts and tools for data science.
+This section covers the essentials you need to get started with the concepts and tools for data science.
 
 ------------------------------------------------------------------------
 
