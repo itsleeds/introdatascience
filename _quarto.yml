@@ -22,7 +22,7 @@ format:
     toc-location: right
     author-meta: "Robin Lovelace & contributors"
     date-meta: "2025"
-    copyright: "© 2025 Robin Lovelace"
+    copyright: "© 2025 Robin Lovelace & contributors"
     license: "CC BY-SA"
     theme: lux
     css: styles.css
