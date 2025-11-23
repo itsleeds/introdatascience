@@ -14,8 +14,6 @@ project:
     - 3-visualisation/slides.qmd
     - 3-visualisation/tasks.qmd
     - 4-statistics/index.qmd
-    - 4-statistics/slides.qmd
-    - 4-statistics/tasks.qmd
     - next-steps.qmd
 
 format:
@@ -64,7 +62,5 @@ website:
         contents:
           - text: "About this section"
             href: 4-statistics/index.qmd
-          - text: "Tasks"
-            href: 4-statistics/tasks.qmd
       - text: "Next Steps"
         href: next-steps.qmd 
