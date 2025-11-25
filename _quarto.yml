@@ -2,7 +2,8 @@ project:
   type: website
   render:
     - index.qmd 
-    - prerequisites.qmd    - 1-basics/index.qmd
+    - prerequisites.qmd
+    - 1-basics/index.qmd
     - 1-basics/slides.qmd
     - 1-basics/tasks.qmd
     - 2-manipulation/index.qmd
