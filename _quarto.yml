@@ -13,6 +13,7 @@ project:
     - 3-visualisation/slides.qmd
     - 3-visualisation/tasks.qmd
     - 4-statistics/index.qmd
+    - 4-statistics/solutions.qmd
     - collaboration.qmd
     - ai.qmd
     - next-steps.qmd
@@ -62,6 +63,8 @@ website:
         contents:
           - text: "About this section"
             href: 4-statistics/index.qmd
+          - text: "Worked Solutions"
+            href: 4-statistics/solutions.qmd
       - text: "Collaboration"
         href: collaboration.qmd
       - text: "AI Tools"
