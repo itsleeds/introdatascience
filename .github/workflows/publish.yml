@@ -47,8 +47,7 @@ jobs:
       - name: Install R Dependencies
         run: |
           install.packages(
-            c("knitr", "rmarkdown", "tidyverse", "ggplot2", "gridExtra", "reticulate"),
-            repos = "https://cran.rstudio.com/"
+            c("knitr", "rmarkdown", "tidyverse", "ggplot2", "gridExtra", "reticulate")
           )
         shell: Rscript {0}
 
