@@ -70,60 +70,11 @@
     ]
   },
   {
-    "objectID": "4-statistics/slides.html#statistical-analysis",
-    "href": "4-statistics/slides.html#statistical-analysis",
-    "title": "4. Statistics",
-    "section": "Statistical Analysis",
-    "text": "Statistical Analysis\nGoing deeper with your data"
-  },
-  {
-    "objectID": "4-statistics/slides.html#correlation",
-    "href": "4-statistics/slides.html#correlation",
-    "title": "4. Statistics",
-    "section": "Correlation",
-    "text": "Correlation\nMeasuring relationships between variables"
-  },
-  {
-    "objectID": "4-statistics/slides.html#statistical-testing",
-    "href": "4-statistics/slides.html#statistical-testing",
-    "title": "4. Statistics",
-    "section": "Statistical Testing",
-    "text": "Statistical Testing\nComparing groups"
-  },
-  {
-    "objectID": "4-statistics/slides.html#regression",
-    "href": "4-statistics/slides.html#regression",
-    "title": "4. Statistics",
-    "section": "Regression",
-    "text": "Regression\nModeling relationships"
-  },
-  {
-    "objectID": "4-statistics/slides.html#working-with-transport-data",
-    "href": "4-statistics/slides.html#working-with-transport-data",
-    "title": "4. Statistics",
-    "section": "Working with Transport Data",
-    "text": "Working with Transport Data\nReal-world analysis"
-  },
-  {
-    "objectID": "4-statistics/slides.html#python-content-optional",
-    "href": "4-statistics/slides.html#python-content-optional",
-    "title": "4. Statistics",
-    "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
-  },
-  {
-    "objectID": "4-statistics/slides.html#key-takeaways",
-    "href": "4-statistics/slides.html#key-takeaways",
-    "title": "4. Statistics",
-    "section": "Key Takeaways",
-    "text": "Key Takeaways\n✅ Understand correlations ✅ Test hypotheses ✅ Fit regression models ✅ Interpret statistical results ✅ Apply to real-world data"
-  },
-  {
     "objectID": "3-visualisation/tasks.html",
     "href": "3-visualisation/tasks.html",
     "title": "3. Visualisation - Tasks",
     "section": "",
-    "text": "In this section, we will practice data visualization using R and the ggplot2 package from the tidyverse. Follow the steps below to create various types of plots.\nUsing the same script 2-data-wrangling-and-visualization.R from the previous section, continue with the following tasks:\nIf you have loaded the tidyverse package and read in the crashes dataset, you can proceed to the next steps. ggplot2 is part of the tidyverse, so you don’t need to load it separately.\n\nBox Plot:\n\nCreate a box plot to visualise the distribution of ages for different casualty types in the crashes dataset.\nUse ggplot() to specify the dataset and aesthetics, and geom_boxplot() to create the box plot.\nAdd appropriate labels and a title to your plot.\nSave the box plot to an object named age_boxplot.\nDisplay the plot by calling the object name.\n\nBar Plot (Optional):\n\nCreate a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).\nAdd custom colours and transparency to the bars.\nAdd appropriate labels and a title.\nSave the plot to an object named casualty_barplot.\n\nExport Your Plots:\n\nSave the box plot as a PNG file named age_boxplot.png using the ggsave() function.\nSave the bar plot as a PNG file named casualty_barplot.png.\nCheck the documentation for ggsave() by typing ?ggsave in the console.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "In this section, we will practice data visualization using R and the ggplot2 package from the tidyverse. Follow the steps below to create various types of plots.\nUsing the same script 2-data-wrangling-and-visualization.R from the previous section, continue with the following tasks:\nIf you have loaded the tidyverse package and read in the crashes dataset, you can proceed to the next steps. ggplot2 is part of the tidyverse, so you don’t need to load it separately.\n\nBox Plot:\n\nCreate a box plot to visualise the distribution of ages for different casualty types in the crashes dataset.\nUse ggplot() to specify the dataset and aesthetics, and geom_boxplot() to create the box plot.\nAdd appropriate labels and a title to your plot.\nSave the box plot to an object named age_boxplot.\nDisplay the plot by calling the object name.\n\nBar Plot (Optional):\n\nCreate a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).\nAdd custom colours and transparency to the bars.\nAdd appropriate labels and a title.\nSave the plot to an object named casualty_barplot.\n\nExport Your Plots:\n\nSave the box plot as a PNG file named age_boxplot.png using the ggsave() function.\nSave the bar plot as a PNG file named casualty_barplot.png.\nCheck the documentation for ggsave() by typing ?ggsave in the console.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Visualisation",
       "Tasks"
@@ -134,7 +85,7 @@
     "href": "3-visualisation/index.html",
     "title": "Visualisation",
     "section": "",
-    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Visualisation",
       "About this section"
@@ -236,7 +187,7 @@
     "href": "1-basics/tasks.html",
     "title": "The Basics - Tasks",
     "section": "",
-    "text": "We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.\n\n\n\n\n\n\nTip\n\n\n\nGet R and RStudio running (see Prerequisites if needed) before.\n\n\nSetting up your first(?) project: 1. In RStudio, go to File &gt; New Project.... - Select New Directory. - Select New Project. - Name the project DS-intro-2025 and choose a directory to save it in (your OneDrive might be a good choice). - Click Create Project. 2. Navigate to the Files tab, and create two folders in the project directory: data and scripts.\nNow using the console only: 3. Type: print(\"Hello, world!\") and hit Enter to see the output. 4. Now try: 2 + 2 and hit Enter. 5. Find what the current working directory is by typing getwd() and hitting Enter. 6. Assign the value 10 to a variable named my_number using the assignment operator &lt;- or =. 7. Print the value of my_number to the console. Did it work?\nNow, let’s create your first R script: 8. In RStudio, go to File &gt; New File &gt; R Script.\n\n\n\n\n\n\nNote\n\n\n\nR scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.\nThink of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.\nAll lines in the script that start with # are comments. They are not executed as code but are there to help explain what the code does.\n\n\n\nSave the script in the scripts folder as 1-basics-intro.R.\nType the following code in the new script:\n# This is my first R script\nprint(\"Hello, world!\")\nmy_number &lt;- 10\nprint(my_number)\nRun the code in the script by placing your cursor on each line and pressing Ctrl + Enter (or Cmd + Enter on Mac). Observe the output in the console.\nCreate a vector with 1000 random numbers between 0 and 100. For this, you can use the runif() function. Assign this vector to a variable named random_numbers. Check how to specify the minimum and maximum values in the runif() function by typing ?runif in the console.\nInstall the tidyverse package by typing install.packages(\"tidyverse\") in the console. We won’t use it now, we will load it in the next part.\n\nOptional:\n\nCalculate the mean and standard deviation of the random_numbers vector using the mean() and sd() functions. Print the results to the console.\nSave your script by clicking File &gt; Save or pressing Ctrl + S (or Cmd + S on Mac).\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.\n\n\n\n\n\n\nTip\n\n\n\nGet R and RStudio running (see Prerequisites if needed) before.\n\n\nSetting up your first(?) project:\n\nIn RStudio, go to File &gt; New Project....\n\nSelect New Directory.\nSelect New Project.\nName the project DS-intro-2025 and choose a directory to save it in (your OneDrive might be a good choice).\nClick Create Project.\n\nNavigate to the Files tab, and create two folders in the project directory: data and scripts.\n\nNow using the console only:\n\nType: print(\"Hello, world!\") and hit Enter to see the output.\nNow try: 2 + 2 and hit Enter.\nFind what the current working directory is by typing getwd() and hitting Enter.\nAssign the value 10 to a variable named my_number using the assignment operator &lt;- or =.\nPrint the value of my_number to the console. Did it work?\n\nNow, let’s create your first R script: 8. In RStudio, go to File &gt; New File &gt; R Script.\n\n\n\n\n\n\nNote\n\n\n\nR scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.\nThink of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.\nAll lines in the script that start with # are comments. They are not executed as code but are there to help explain what the code does.\n\n\n\nSave the script in the scripts folder as 1-basics-intro.R.\nType the following code in the new script:\n# This is my first R script\nprint(\"Hello, world!\")\nmy_number &lt;- 10\nprint(my_number)\nRun the code in the script by placing your cursor on each line and pressing Ctrl + Enter (or Cmd + Enter on Mac). Observe the output in the console.\nCreate a vector with 1000 random numbers between 0 and 100. For this, you can use the runif() function. Assign this vector to a variable named random_numbers. Check how to specify the minimum and maximum values in the runif() function by typing ?runif in the console.\nInstall the tidyverse package by typing install.packages(\"tidyverse\") in the console. We won’t use it now, we will load it in the next part.\n\nOptional:\n\nCalculate the mean and standard deviation of the random_numbers vector using the mean() and sd() functions. Print the results to the console.\nSave your script by clicking File &gt; Save or pressing Ctrl + S (or Cmd + S on Mac).\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Basics",
       "Tasks"
@@ -247,7 +198,7 @@
     "href": "1-basics/index.html",
     "title": "The Basics",
     "section": "",
-    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Basics",
       "About this section"
@@ -431,7 +382,7 @@
     "href": "2-manipulation/index.html",
     "title": "Manipulation",
     "section": "",
-    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Manipulation",
       "About this section"
@@ -442,7 +393,7 @@
     "href": "2-manipulation/tasks.html",
     "title": "Data Wrangling - Tasks",
     "section": "",
-    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file (here) and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file (here) and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Manipulation",
       "Tasks"
@@ -514,78 +465,12 @@
   {
     "objectID": "4-statistics/index.html",
     "href": "4-statistics/index.html",
-    "title": "Statistics",
+    "title": "Statistics - Tasks",
     "section": "",
-    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using R.\n\nDownload the datasets for this exercises and save them in your data folder:\n\n\nParkRun Performance Data.xlsx\nRunning Data.xlsx\n\n\nDownload the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.\n\n\nScript 1: Excel Task\nScript 2: SPSS Task\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
       "Statistics",
       "About this section"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html",
-    "href": "4-statistics/tasks.html",
-    "title": "4. Statistics - Tasks",
-    "section": "",
-    "text": "Complete these exercises to practice statistical analysis.",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html#exercise-1-transport-data-analysis",
-    "href": "4-statistics/tasks.html#exercise-1-transport-data-analysis",
-    "title": "4. Statistics - Tasks",
-    "section": "Exercise 1: Transport Data Analysis",
-    "text": "Exercise 1: Transport Data Analysis\n\nIn R\nlibrary(tidyverse)\n\n# Create a simple trip dataset\ntrips &lt;- data.frame(\n  trip_id = 1:10,\n  distance_km = c(5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8),\n  mode = c(\"bus\", \"walk\", \"car\", \"walk\", \"train\", \"bus\", \"car\", \"bike\", \"walk\", \"bus\"),\n  duration_min = c(25, 15, 20, 10, 45, 20, 18, 30, 12, 22)\n)\n\n# Calculate average speed by mode\ntrip_summary &lt;- trips %&gt;%\n  mutate(speed_kmh = (distance_km / duration_min) * 60) %&gt;%\n  group_by(mode) %&gt;%\n  summarise(\n    avg_speed = mean(speed_kmh),\n    avg_distance = mean(distance_km),\n    count = n()\n  )\n\nprint(trip_summary)\nYour Tasks: - Which transport mode has the highest average speed? - Calculate the total distance traveled across all trips - Create a bar plot showing trip counts by mode\n\n\nIn Python\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ntrips = pd.DataFrame({\n    'trip_id': range(1, 11),\n    'distance_km': [5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8],\n    'mode': ['bus', 'walk', 'car', 'walk', 'train', 'bus', 'car', 'bike', 'walk', 'bus'],\n    'duration_min': [25, 15, 20, 10, 45, 20, 18, 30, 12, 22]\n})\n\n# Calculate speed\ntrips['speed_kmh'] = (trips['distance_km'] / trips['duration_min']) * 60\n\ntrip_summary = trips.groupby('mode').agg({\n    'speed_kmh': 'mean',\n    'distance_km': 'mean',\n    'trip_id': 'count'\n}).rename(columns={'trip_id': 'count'})\n\nprint(trip_summary)\nYour Tasks: - Which transport mode has the highest average speed? - Calculate the total distance traveled - Create a bar plot showing trip counts by mode",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html#exercise-2-correlation-analysis",
-    "href": "4-statistics/tasks.html#exercise-2-correlation-analysis",
-    "title": "4. Statistics - Tasks",
-    "section": "Exercise 2: Correlation Analysis",
-    "text": "Exercise 2: Correlation Analysis\n\nIn R\n# Calculate correlation between variables\ncorrelation &lt;- cor(mtcars$mpg, mtcars$wt)\nprint(paste(\"Correlation between mpg and weight:\", round(correlation, 3)))\n\n# Correlation with p-value\ncor_test &lt;- cor.test(mtcars$mpg, mtcars$wt)\nprint(cor_test)\nYour Tasks: - What is the correlation between mpg and horsepower? - What is the correlation between weight and horsepower? - Create a correlation matrix for mpg, wt, hp, and cyl - Interpret the results\n\n\nIn Python\nfrom scipy import stats\n\n# Correlation\ncorrelation = df['weight'].corr(df['mpg'])\nprint(f\"Correlation between weight and mpg: {correlation:.3f}\")\n\n# With p-value\nt_stat, p_value = stats.pearsonr(df['weight'], df['mpg'])\nprint(f\"Correlation: {t_stat:.3f}\")\nprint(f\"P-value: {p_value:.4f}\")\n\n# Correlation matrix\ncorr_matrix = df[['mpg', 'weight', 'horsepower', 'cylinders']].corr()\nYour Tasks: - Calculate the correlation between all pairs of variables - Which pairs are most strongly correlated? - Are they positive or negative?",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html#exercise-3-statistical-testing",
-    "href": "4-statistics/tasks.html#exercise-3-statistical-testing",
-    "title": "4. Statistics - Tasks",
-    "section": "Exercise 3: Statistical Testing",
-    "text": "Exercise 3: Statistical Testing\n\nIn R\n# T-test: compare mpg between two groups\nautomatic &lt;- mtcars[mtcars$am == 0, ]$mpg\nmanual &lt;- mtcars[mtcars$am == 1, ]$mpg\n\nt_test_result &lt;- t.test(automatic, manual)\nprint(t_test_result)\nYour Tasks: - Interpret the t-test results - Is there a significant difference in mpg between automatic and manual cars? - Compare mpg for 4-cylinder vs 8-cylinder cars - What does the p-value tell you?\n\n\nIn Python\nfrom scipy import stats\n\n# Compare two groups\ngroup_4cyl = df[df['cylinders'] == 4]['mpg'].dropna()\ngroup_8cyl = df[df['cylinders'] == 8]['mpg'].dropna()\n\nt_stat, p_value = stats.ttest_ind(group_4cyl, group_8cyl)\nprint(f\"T-statistic: {t_stat:.3f}\")\nprint(f\"P-value: {p_value:.4f}\")\nYour Tasks: - Compare mpg between different origins - Are the differences significant? - What does a p-value &lt; 0.05 mean?",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html#exercise-4-linear-regression",
-    "href": "4-statistics/tasks.html#exercise-4-linear-regression",
-    "title": "4. Statistics - Tasks",
-    "section": "Exercise 4: Linear Regression",
-    "text": "Exercise 4: Linear Regression\n\nIn R\n# Fit a linear regression model\nmodel &lt;- lm(mpg ~ wt + hp, data = mtcars)\n\n# View the results\nsummary(model)\n\n# Make predictions\nnew_data &lt;- data.frame(wt = c(3, 4, 5), hp = c(100, 150, 200))\npredictions &lt;- predict(model, newdata = new_data)\nprint(predictions)\nYour Tasks: - What are the model coefficients? - How do you interpret them? - Make predictions for new values - What is the R-squared value?\n\n\nIn Python\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import r2_score\n\n# Prepare data\nX = df[['weight', 'horsepower']].dropna()\ny = df.loc[X.index, 'mpg']\n\n# Fit model\nmodel = LinearRegression()\nmodel.fit(X, y)\n\n# Results\nprint(f\"Coefficients: {model.coef_}\")\nprint(f\"Intercept: {model.intercept_}\")\nprint(f\"R-squared: {r2_score(y, model.predict(X)):.3f}\")\n\n# Predictions\npredictions = model.predict([[3, 100], [4, 150]])\nYour Tasks: - Build a regression model - Interpret the coefficients - Make predictions - Evaluate model performance",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "4-statistics/tasks.html#bonus-challenge",
-    "href": "4-statistics/tasks.html#bonus-challenge",
-    "title": "4. Statistics - Tasks",
-    "section": "Bonus Challenge",
-    "text": "Bonus Challenge\nPerform a complete analysis: 1. Load a dataset 2. Explore it with descriptive statistics 3. Calculate correlations 4. Create visualizations 5. Test hypotheses with statistical tests 6. Build a predictive model 7. Present your findings",
-    "crumbs": [
-      "Statistics",
-      "Tasks"
     ]
   }
 ]
