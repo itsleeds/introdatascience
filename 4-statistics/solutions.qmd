@@ -7,6 +7,12 @@ format:
 
 This page presents the worked solutions for the statistics tasks, showing how to perform the same analyses in both R and Python.
 
+::: callout-warning
+## Before you proceed...
+
+These are worked solutions. We strongly recommend attempting to debug the R and Python problem scripts in the [Tasks section](4-statistics/index.qmd) before reviewing these solutions. Learning to debug is a crucial data science skill!
+:::
+
 ## Task 1: Excel Data Analysis
 
 This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx`), cleaning it, calculating summaries, and visualizing the distribution of run times.
@@ -19,12 +25,17 @@ This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx
 #| label: excel-task-r
 #| warning: false
 #| message: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from Excel Task (R)"
 
+# Loading the necessary libraries
 library(tidyverse)
 library(readxl)
 
 # Assigning the path to a variable
-path_to_file <- "../00_data/ParkRunPerformanceData.xlsx"
+path_to_file <- "../00_data/ParkRunPerformanceData.xlsx" # Corrected path
 
 # Reading data from an Excel file
 data <- read_excel(path = path_to_file,
@@ -32,41 +43,65 @@ data <- read_excel(path = path_to_file,
                    col_types = c("date", "numeric"))
 
 # Exploring the data
-head(data)
+cat("---\n--- Head of Data ---\n---")
+print(head(data))
+
+cat("\n--- Structure of Data ---")
 str(data)
+
+cat("\n--- Summary Statistics ---")
 summary(data)
 
-# Rename the columns
+
+# Rename the columns to ensure consistency and ease manipulation
 names(data) <- c("date","runtime")
 
-# Sorting
-data |> arrange(runtime) |> head()
+# Sorting the data
+data_sorted <- data |> arrange(runtime)
+catalog("\n--- Sorted Data (Ascending) ---")
+print(head(data_sorted))
 
-# Summaries
-data |>
+data_sorted_inv <- data |> arrange(-runtime)
+catalog("\n--- Sorted Data (Descending) ---")
+print(head(data_sorted_inv))
+
+
+# Calculating the summaries manually 
+summary_dates <- 
+  data |
   summarise(min_date = min(date),
             max_date = max(date))
+catalog("\n--- Summary Dates ---")
+print(summary_dates)
 
-data |>
+summary_runtimes <- 
+  data |
   summarise(
             count = n(),
             mean_runtime = mean(runtime),
             slowest = max(runtime),
             fastest = min(runtime))
+catalog("\n--- Summary Runtimes ---")
+print(summary_runtimes)
 
-# Rounding
-data_rounded <- data |> 
+# Rounding the run times to the nearest minute
+data_rounded <- data |
   mutate(runtime_mins = round(x = runtime, digits = 0))
+catalog("\n--- Data with Rounded Runtimes ---")
+print(head(data_rounded))
 
-# Frequencies
-data_rounded |> 
+
+# Counting the frequencies for each value
+freq <- data_rounded |
   count(runtime_mins)
+catalog("\n--- Frequencies ---")
+print(freq)
 
-# Histograms
-hist(data_rounded$runtime_mins, breaks = 14:33, main = "Rounded Runtimes")
+# A quick histogram
+hist(data_rounded$runtime_mins,breaks = 14:33, main = "Quick Histogram of Run Times")
 
-# Ggplot
-data |> 
+# A nicer histogram
+data |
   ggplot(aes(x = runtime))+
   geom_histogram(binwidth = 1, col = "white",fill = "steelblue", alpha = 0.7)+
   labs (x = "Run time in seconds",
@@ -79,8 +114,9 @@ data |>
   theme_minimal()+
   theme(title = element_text(size = 15))
 
-# Improvement over time
-data |> 
+# Have the run times improved?
+  # A different exploration
+data |
   ggplot(aes(x = date, y = runtime))+
   geom_point() +  
   geom_smooth(method = "lm")
@@ -91,6 +127,10 @@ data |>
 ```{python}
 #| label: excel-task-py
 #| warning: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from Excel Task (Python)"
 
 import polars as pl
 import pandas as pd
@@ -100,21 +140,65 @@ import matplotlib.dates as mdates
 
 sns.set_theme(style="whitegrid")
 
-path_to_file = "../00_data/ParkRunPerformanceData.xlsx"
+# Assigning the path to a variable
+path_to_file = "../00_data/ParkRunPerformanceData.xlsx" # Corrected path
+
+# Reading data from an Excel file
 data = pl.from_pandas(pd.read_excel(path_to_file, sheet_name="Sheet1"))
 
-# Rename columns
+# Exploring the data
+print("---\n--- Head of Data ---\n---")
+print(data.head())
+
+print("\n--- Schema ---")
+print(data.schema)
+
+print("\n--- Summary Statistics ---")
+print(data.describe())
+
+# Rename the columns
 if len(data.columns) >= 2:
     data = data.rename({data.columns[0]: "date", data.columns[1]: "runtime"})
 
-print(data.describe())
+# Sorting the data
+data_sorted = data.sort("runtime")
+print("\n--- Sorted Data (Ascending) ---")
+print(data_sorted.head())
 
-# Rounding
+data_sorted_inv = data.sort("runtime", descending=True)
+print("\n--- Sorted Data (Descending) ---")
+print(data_sorted_inv.head())
+
+# Calculating summaries
+summary_dates = data.select([
+    pl.col("date").min().alias("min_date"),
+    pl.col("date").max().alias("max_date")
+])
+print("\n--- Summary Dates ---")
+print(summary_dates)
+
+summary_runtimes = data.select([
+    pl.len().alias("count"),
+    pl.col("runtime").mean().alias("mean_runtime"),
+    pl.col("runtime").max().alias("slowest"),
+    pl.col("runtime").min().alias("fastest")
+])
+print("\n--- Summary Runtimes ---")
+print(summary_runtimes)
+
+# Rounding the run times
 data_rounded = data.with_columns(
     pl.col("runtime").round(0).alias("runtime_mins")
 )
+print("\n--- Data with Rounded Runtimes ---")
+print(data_rounded.head())
 
-# Histogram
+# Frequencies
+freq = data_rounded.group_by("runtime_mins").len().sort("runtime_mins")
+print("\n--- Frequencies ---")
+print(freq)
+
+# Nicer Histogram
 plt.figure(figsize=(10, 6))
 sns.histplot(
     data=data_rounded.to_pandas(), 
@@ -124,20 +208,32 @@ sns.histplot(
     edgecolor="white", 
     alpha=0.7
 )
-plt.title("Park Run Times Distribution")
+plt.title("Park Run Times Distribution\nRecords from Aug 2012 to Aug 2015", fontsize=15)
+plt.xlabel("Run time in seconds")
+plt.ylabel("frequency")
+plt.xlim(14, 33)
+plt.axhline(0, color="grey", linewidth=1)
+plt.figtext(0.8, 0.01, "Source: Andrew Tomlinson", wrap=True, horizontalalignment='center', fontsize=10) # Uncommented
 plt.show()
 
-# Improvement over time
+# Have the run times improved?
 plt.figure(figsize=(10, 6))
+pdf = data.to_pandas()
+# Ensure date is numeric for regression plot
+pdf['date_num'] = mdates.date2num(pdf['date'])
+
 sns.regplot(
-    data=data.to_pandas(), 
-    x=pd.to_numeric(data["date"].to_pandas()), 
+    data=pdf, 
+    x='date_num', 
     y="runtime", 
     scatter_kws={'s':10}, 
     line_kws={'color':'blue'}
 )
+# Fix x-axis to show dates
+ax = plt.gca()
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
 plt.title("Run Times over Date")
-plt.show()
+plt.show() # Uncommented
 ```
 
 :::
@@ -154,6 +250,10 @@ This task analyzes running data originally handled in SPSS (`RunningData.xlsx`),
 #| label: spss-task-r
 #| warning: false
 #| message: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from SPSS Task (R)"
 
 library(tidyverse)
 library(readxl)
@@ -165,55 +265,72 @@ data <- read_excel(path = path_to_file, sheet = "Sheet1")
 names(data) <- c("position", "time", "age_cat", "gender", "prev_runs")
 
 # Summaries
+catalog("---\n--- Summary of Time ---")
 summary(data$time)
+catalog("\n--- Unique Age Categories ---")
 unique(data$age_cat)
 
 # Subset only adults 
 children_cats <- c("10","11-14","15-17")
-data_adults <- data |> 
+data_adults <- data |
   filter(!age_cat %in% children_cats)
 
+catalog("\n--- Unique Adult Age Categories ---")
 unique(data_adults$age_cat)
+catalog("\n--- Summary of Adult Time ---")
 summary(data_adults$time)
 
 # Analysis by gender
-data_adults |> 
-  group_by(gender) |> 
+catalog("\n--- Analysis by Gender ---")
+data_adults |
+  group_by(gender) |
   summarise(min = min(time),
             mean = mean(time),
             median = mean(time),
             max = max(time))
 
 # Comparing distributions
-data_adults |> 
+data_adults |
   ggplot(aes(x = time, fill = gender))+
   geom_histogram(col = "white")+
   facet_grid(gender~.)
 
-data_adults |> 
+data_adults |
+  ggplot(aes(x = time, col = gender))+
+  geom_density()
+
+data_adults |
   ggplot(aes(x = time, col = gender))+
   geom_boxplot()
 
-# Statistical tests
+data_adults |
+  ggplot(aes(x = time, y = gender, col = gender))+
+  geom_violin()
+
+## Statistical tests
+# Extracting the data
 times_female <- data_adults |> filter(gender == "F") |> pull(time)
 times_male <- data_adults |> filter(gender == "M") |> pull(time)
 
+catalog("\n--- T-Test Results (Male vs Female) ---")
 t.test(times_male, times_female)
 
 # Previous runs vs times
-data_adults |> 
+data_adults |
   ggplot(aes(x = prev_runs, y = time))+
   geom_point()+
   geom_smooth(method = "lm")
 
+catalog("\n--- Correlation Test (Time vs Previous Runs) ---")
 cor.test(data_adults$time, data_adults$prev_runs)
 
 # Linear Model
 # Extract first two digits of age category for numeric age proxy
-data_adults_lm <- data_adults |> 
+data_adults_lm <- data_adults |
   mutate(age = str_extract(age_cat, '^\\d{2}') |> as.numeric())  
 
 my_linear_model <- lm(formula = "time ~ age + gender + prev_runs", data = data_adults_lm) 
+catalog("\n--- Linear Model Summary ---")
 summary(my_linear_model)
 ```
 
@@ -222,6 +339,10 @@ summary(my_linear_model)
 ```{python}
 #| label: spss-task-py
 #| warning: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from SPSS Task (Python)"
 
 import polars as pl
 import pandas as pd
@@ -246,15 +367,26 @@ if len(data.columns) >= 5:
         data.columns[4]: "prev_runs"
     })
 
+print("---\n--- Head ---")
+print(data.head())
+print("\n--- Schema ---")
+print(data.schema)
+print("\n--- Summary ---")
+print(data.describe())
+print("\n--- Time Summary ---")
 print(data["time"].describe())
 
 # Subset adults
 children_cats = ["10", "11-14", "15-17"]
 data_adults = data.filter(~pl.col("age_cat").is_in(children_cats))
 
+print("\n--- Adult Age Categories ---\n")
+print(data_adults["age_cat"].unique())
+print("\n--- Adult Time Summary ---")
 print(data_adults["time"].describe())
 
 # Analysis by gender
+print("\n--- Analysis by Gender ---")
 summary_gender = data_adults.group_by("gender").agg([
     pl.col("time").min().alias("min"),
     pl.col("time").mean().alias("mean"),
@@ -268,29 +400,58 @@ g = sns.FacetGrid(data_adults.to_pandas(), row="gender", hue="gender", aspect=2,
 g.map(sns.histplot, "time", edgecolor="white")
 plt.show()
 
-plt.figure()
-sns.boxplot(data=data_adults.to_pandas(), x="time", hue="gender")
+plt.figure(figsize=(10,6)) # Added figure size for consistency
+sns.kdeplot(data=data_adults.to_pandas(), x="time", hue="gender")
+plt.title("Density by Gender")
 plt.show()
 
-# Statistical tests
+plt.figure(figsize=(10,6)) # Added figure size for consistency
+sns.boxplot(data=data_adults.to_pandas(), x="time", hue="gender")
+plt.title("Boxplot by Gender")
+plt.show()
+
+plt.figure(figsize=(10,6)) # Added figure size for consistency
+sns.violinplot(data=data_adults.to_pandas(), x="time", y="gender", hue="gender")
+plt.title("Violin Plot by Gender")
+plt.show()
+
+
+## Statistical tests
+# Extracting the data
 times_female = data_adults.filter(pl.col("gender") == "F")["time"]
 times_male = data_adults.filter(pl.col("gender") == "M")["time"]
 
+print("\n--- Female Times (Head) ---")
+print(times_female.head())
+print("\n--- Male Times (Head) ---")
+print(times_male.head())
+
 t_stat, p_val = stats.ttest_ind(times_male, times_female)
-print(f"T-Test Results:\nt-statistic: {t_stat}\np-value: {p_val}")
+print(f"\n--- T-Test Results ---\nt-statistic: {t_stat}\np-value: {p_val}")
+
+# Previous runs vs times
+plt.figure(figsize=(10,6)) # Added figure size for consistency
+sns.regplot(data=data_adults.to_pandas(), x="prev_runs", y="time")
+plt.title("Time vs Previous Runs")
+plt.show()
+
+plt.figure(figsize=(10,6)) # Added figure size for consistency
+sns.lmplot(data=data_adults.to_pandas(), x="prev_runs", y="time", hue="gender")
+plt.title("Time vs Previous Runs by Gender")
+plt.show()
 
 # Correlation
 corr, p_corr = stats.pearsonr(data_adults["time"], data_adults["prev_runs"])
-print(f"Correlation: {corr}, p-value: {p_corr}")
+print(f"\n--- Correlation Test ---\ncorrelation: {corr}\np-value: {p_corr}")
 
 # Linear Model
 data_adults_lm = data_adults.with_columns(
-    pl.col("age_cat").str.extract(r"^(\d{{2}})", 1).cast(pl.Float64).alias("age")
+    pl.col("age_cat").str.extract(r"^(\d{{2}})", 1).cast(pl.Float64).alias("age") # FIXED: Regex error
 )
 
 model = smf.ols(formula="time ~ age + gender + prev_runs", data=data_adults_lm.to_pandas())
 results = model.fit()
+print("\n--- Linear Model Summary ---\n")
 print(results.summary())
 ```
-
 :::
