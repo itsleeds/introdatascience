@@ -15,30 +15,127 @@ This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx
 
 ### R
 
-```{sh}
-# Check if RScript is available and if so run the R code
-$r_available <- Sys.which("Rscript") != ""
-# Run tasks if available
-if ($r_available) {
-  RScript --vanilla task_excel.R
-  RScript --vanilla task_excel_debug.R
-  RScript --vanilla task_spss.R
-  RScript --vanilla task_spss_debug.R
+```{r}
+#| label: excel-task-r
+#| warning: false
+#| message: false
 
-}
+library(tidyverse)
+library(readxl)
+
+# Assigning the path to a variable
+path_to_file <- "../00_data/ParkRunPerformanceData.xlsx"
+
+# Reading data from an Excel file
+data <- read_excel(path = path_to_file,
+                   sheet = "Sheet1",
+                   col_types = c("date", "numeric"))
+
+# Exploring the data
+head(data)
+str(data)
+summary(data)
+
+# Rename the columns
+names(data) <- c("date","runtime")
+
+# Sorting
+data |> arrange(runtime) |> head()
+
+# Summaries
+data |>
+  summarise(min_date = min(date),
+            max_date = max(date))
+
+data |>
+  summarise(
+            count = n(),
+            mean_runtime = mean(runtime),
+            slowest = max(runtime),
+            fastest = min(runtime))
+
+# Rounding
+data_rounded <- data |> 
+  mutate(runtime_mins = round(x = runtime, digits = 0))
+
+# Frequencies
+data_rounded |> 
+  count(runtime_mins)
+
+# Histograms
+hist(data_rounded$runtime_mins, breaks = 14:33, main = "Rounded Runtimes")
+
+# Ggplot
+data |> 
+  ggplot(aes(x = runtime))+
+  geom_histogram(binwidth = 1, col = "white",fill = "steelblue", alpha = 0.7)+
+  labs (x = "Run time in seconds",
+        y = "frequency",
+        title = "Park Run Times Distribution",
+        subtitle = "Records from Aug 2012 to Aug 2015",
+        caption = "Source: Andrew Tomlinson")+
+  scale_x_continuous(breaks = 14:33)+
+  geom_hline(yintercept = 0,linewidth = 1,col = "grey30")+
+  theme_minimal()+
+  theme(title = element_text(size = 15))
+
+# Improvement over time
+data |> 
+  ggplot(aes(x = date, y = runtime))+
+  geom_point() +  
+  geom_smooth(method = "lm")
 ```
 
 ### Python
 
-```{sh}
-#| label: excel-task-py-run
+```{python}
+#| label: excel-task-py
 #| warning: false
-# Check if python3 is available
-if which python3 > /dev/null; then
-  python3 task_excel.py
-  python3 task_spss.py
-fi
-ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
+
+import polars as pl
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+sns.set_theme(style="whitegrid")
+
+path_to_file = "../00_data/ParkRunPerformanceData.xlsx"
+data = pl.from_pandas(pd.read_excel(path_to_file, sheet_name="Sheet1"))
+
+# Rename columns
+if len(data.columns) >= 2:
+    data = data.rename({data.columns[0]: "date", data.columns[1]: "runtime"})
+
+print(data.describe())
+
+# Rounding
+data_rounded = data.with_columns(
+    pl.col("runtime").round(0).alias("runtime_mins")
+)
+
+# Histogram
+plt.figure(figsize=(10, 6))
+sns.histplot(
+    data=data_rounded.to_pandas(), 
+    x="runtime", 
+    binwidth=1, 
+    color="steelblue", 
+    edgecolor="white", 
+    alpha=0.7
+)
+plt.title("Park Run Times Distribution")
+plt.show()
+
+# Improvement over time
+plt.figure(figsize=(10, 6))
+sns.regplot(
+    data=data.to_pandas(), 
+    x=pd.to_numeric(data["date"].to_pandas()), 
+    y="runtime", 
+    scatter_kws={'s':10}, 
+    line_kws={'color':'blue'}
+)
 plt.title("Run Times over Date")
 plt.show()
 ```
