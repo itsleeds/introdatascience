@@ -37,6 +37,22 @@ Good news! Students get **free access** to GitHub Copilot:
 3.  Sign in with your GitHub account
 
 
+## Google Gemini
+
+**Google Gemini** is a powerful multimodal AI model that can assist with coding, data analysis, and more.
+
+### Free Access for Students
+
+Eligible students can get **free access** to Gemini Advanced for 12 months:
+
+1.  Visit [gemini.google/students](https://gemini.google/students)
+2.  Click on "Get the offer"
+3.  Sign in with your **personal** Google account (not your university email)
+4.  Verify your student status via SheerID
+5.  Enjoy 1 year of free access to Gemini Advanced
+
+*Note: Requires being 18+ and enrolled at an eligible institution.*
+
 ## Best Practices
 
 ::: callout-tip

@@ -9,6 +9,24 @@ Welcome to this practical introduction to data science! This session is designed
 
 In this practical, you'll get hands-on experience with data science tools. We'll cover implementations primarily in **R**. **Python** versions of the contents are provided for reference in some cases.
 
+## Logistics
+
+-   **Date:** Friday 28th November 2025
+-   **Time:** 09:00 - 12:00 (3 hours)
+-   **Location:** Computer Cluster (Check timetable for specific room)
+
+## Schedule
+
+| Time | Activity |
+|------|----------|
+| 09:00 - 09:15 | **Welcome & Setup**: Introduction and getting ready |
+| 09:15 - 09:45 | **Basics**: RStudio, Quarto, and basic syntax |
+| 09:45 - 10:30 | **Manipulation**: Cleaning and transforming data with dplyr |
+| 10:30 - 10:45 | *Break* |
+| 10:45 - 11:30 | **Visualisation**: Creating plots with ggplot2 |
+| 11:30 - 11:50 | **Statistics**: Basic statistical analysis (R, SPSS, Excel) |
+| 11:50 - 12:00 | **Wrap-up**: Collaboration, AI tools and next steps |
+
 ## What You'll Learn
 
 This session covers:

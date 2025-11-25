@@ -2,9 +2,7 @@ project:
   type: website
   render:
     - index.qmd 
-    - prerequisites.qmd
-    - github-copilot.qmd
-    - 1-basics/index.qmd
+    - prerequisites.qmd    - 1-basics/index.qmd
     - 1-basics/slides.qmd
     - 1-basics/tasks.qmd
     - 2-manipulation/index.qmd
@@ -14,6 +12,8 @@ project:
     - 3-visualisation/slides.qmd
     - 3-visualisation/tasks.qmd
     - 4-statistics/index.qmd
+    - collaboration.qmd
+    - ai.qmd
     - next-steps.qmd
 
 format:
@@ -38,8 +38,7 @@ website:
         href: index.qmd
       - text: "Prerequisites"
         href: prerequisites.qmd
-      - text: "GitHub Copilot & AI"
-        href: github-copilot.qmd
+
       - section: "Basics"
         contents:
           - text: "About this section"
@@ -62,5 +61,9 @@ website:
         contents:
           - text: "About this section"
             href: 4-statistics/index.qmd
+      - text: "Collaboration"
+        href: collaboration.qmd
+      - text: "AI Tools"
+        href: ai.qmd
       - text: "Next Steps"
-        href: next-steps.qmd 
+        href: next-steps.qmd
