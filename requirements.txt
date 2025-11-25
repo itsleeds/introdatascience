@@ -1,0 +1,8 @@
+polars
+pandas
+openpyxl
+seaborn
+matplotlib
+scipy
+statsmodels
+pyarrow
