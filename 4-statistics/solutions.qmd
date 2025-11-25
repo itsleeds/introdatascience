@@ -58,50 +58,50 @@ names(data) <- c("date","runtime")
 
 # Sorting the data
 data_sorted <- data |> arrange(runtime)
-catalog("\n--- Sorted Data (Ascending) ---")
+cat("\n--- Sorted Data (Ascending) ---")
 print(head(data_sorted))
 
 data_sorted_inv <- data |> arrange(-runtime)
-catalog("\n--- Sorted Data (Descending) ---")
+cat("\n--- Sorted Data (Descending) ---")
 print(head(data_sorted_inv))
 
 
 # Calculating the summaries manually 
 summary_dates <- 
-  data |
+  data |>
   summarise(min_date = min(date),
             max_date = max(date))
-catalog("\n--- Summary Dates ---")
+cat("\n--- Summary Dates ---")
 print(summary_dates)
 
 summary_runtimes <- 
-  data |
+  data |>
   summarise(
             count = n(),
             mean_runtime = mean(runtime),
             slowest = max(runtime),
             fastest = min(runtime))
-catalog("\n--- Summary Runtimes ---")
+cat("\n--- Summary Runtimes ---")
 print(summary_runtimes)
 
 # Rounding the run times to the nearest minute
-data_rounded <- data |
+data_rounded <- data |> 
   mutate(runtime_mins = round(x = runtime, digits = 0))
-catalog("\n--- Data with Rounded Runtimes ---")
+cat("\n--- Data with Rounded Runtimes ---")
 print(head(data_rounded))
 
 
 # Counting the frequencies for each value
-freq <- data_rounded |
+freq <- data_rounded |> 
   count(runtime_mins)
-catalog("\n--- Frequencies ---")
+cat("\n--- Frequencies ---")
 print(freq)
 
 # A quick histogram
 hist(data_rounded$runtime_mins,breaks = 14:33, main = "Quick Histogram of Run Times")
 
 # A nicer histogram
-data |
+data |> 
   ggplot(aes(x = runtime))+
   geom_histogram(binwidth = 1, col = "white",fill = "steelblue", alpha = 0.7)+
   labs (x = "Run time in seconds",
@@ -116,7 +116,7 @@ data |
 
 # Have the run times improved?
   # A different exploration
-data |
+data |> 
   ggplot(aes(x = date, y = runtime))+
   geom_point() +  
   geom_smooth(method = "lm")
@@ -265,72 +265,98 @@ data <- read_excel(path = path_to_file, sheet = "Sheet1")
 names(data) <- c("position", "time", "age_cat", "gender", "prev_runs")
 
 # Summaries
-catalog("---\n--- Summary of Time ---")
+cat("---\n--- Summary of Time ---")
 summary(data$time)
-catalog("\n--- Unique Age Categories ---")
+cat("\n--- Unique Age Categories ---")
 unique(data$age_cat)
 
 # Subset only adults 
 children_cats <- c("10","11-14","15-17")
-data_adults <- data |
+data_adults <- data |> 
   filter(!age_cat %in% children_cats)
 
-catalog("\n--- Unique Adult Age Categories ---")
+cat("\n--- Unique Adult Age Categories ---")
 unique(data_adults$age_cat)
-catalog("\n--- Summary of Adult Time ---")
+cat("\n--- Summary of Adult Time ---")
 summary(data_adults$time)
 
 # Analysis by gender
-catalog("\n--- Analysis by Gender ---")
-data_adults |
-  group_by(gender) |
+cat("\n--- Analysis by Gender ---")
+data_adults |> 
+  group_by(gender) |> 
   summarise(min = min(time),
             mean = mean(time),
             median = mean(time),
             max = max(time))
 
 # Comparing distributions
-data_adults |
+data_adults |> 
   ggplot(aes(x = time, fill = gender))+
   geom_histogram(col = "white")+
   facet_grid(gender~.)
 
-data_adults |
+data_adults |> 
   ggplot(aes(x = time, col = gender))+
   geom_density()
 
-data_adults |
+data_adults |> 
   ggplot(aes(x = time, col = gender))+
   geom_boxplot()
 
-data_adults |
+data_adults |> 
   ggplot(aes(x = time, y = gender, col = gender))+
   geom_violin()
 
 ## Statistical tests
 # Extracting the data
-times_female <- data_adults |> filter(gender == "F") |> pull(time)
-times_male <- data_adults |> filter(gender == "M") |> pull(time)
+times_female_adults <- data_adults |> filter(gender == "F") |> pull(time)
+times_male_adults <- data_adults |> filter(gender == "M") |> pull(time)
 
-catalog("\n--- T-Test Results (Male vs Female) ---")
-t.test(times_male, times_female)
+cat("\n--- T-Test Results (Male vs Female) ---")
+t.test(times_male_adults, times_female_adults)
 
 # Previous runs vs times
-data_adults |
+data_adults |> 
   ggplot(aes(x = prev_runs, y = time))+
   geom_point()+
   geom_smooth(method = "lm")
 
-catalog("\n--- Correlation Test (Time vs Previous Runs) ---")
+data_adults |> 
+  ggplot(aes(x = prev_runs, y =time, col = gender))+
+  geom_point() +
+  geom_smooth(method = "lm")
+
+cat("\n--- Correlation Test (Time vs Previous Runs) ---")
 cor.test(data_adults$time, data_adults$prev_runs)
+
+# Finding the median of prev runs
+median_prev_runs <- median(data_adults$prev_runs)
+cat("\n--- Median Previous Runs ---")
+print(median_prev_runs)
+
+data_adults_pr_gr <- data_adults |> 
+  mutate(pr_gr = prev_runs>=median_prev_runs)
+
+cat("\n--- Data with pr_gr group ---")
+print(head(data_adults_pr_gr))
+
+# a quick visual check
+data_adults_pr_gr |> 
+  ggplot(aes(prev_runs,fill = pr_gr))+
+  geom_histogram()
+
+# Comparing times
+data_adults_pr_gr |> 
+  ggplot(aes(x = time, col = pr_gr))+
+  geom_boxplot()
 
 # Linear Model
 # Extract first two digits of age category for numeric age proxy
-data_adults_lm <- data_adults |
+data_adults_lm <- data_adults |> 
   mutate(age = str_extract(age_cat, '^\\d{2}') |> as.numeric())  
 
 my_linear_model <- lm(formula = "time ~ age + gender + prev_runs", data = data_adults_lm) 
-catalog("\n--- Linear Model Summary ---")
+cat("\n--- Linear Model Summary ---")
 summary(my_linear_model)
 ```
 
@@ -418,15 +444,15 @@ plt.show()
 
 ## Statistical tests
 # Extracting the data
-times_female = data_adults.filter(pl.col("gender") == "F")["time"]
-times_male = data_adults.filter(pl.col("gender") == "M")["time"]
+times_female_adults = data_adults.filter(pl.col("gender") == "F")["time"]
+times_male_adults = data_adults.filter(pl.col("gender") == "M")["time"]
 
 print("\n--- Female Times (Head) ---")
-print(times_female.head())
+print(times_female_adults.head())
 print("\n--- Male Times (Head) ---")
-print(times_male.head())
+print(times_male_adults.head())
 
-t_stat, p_val = stats.ttest_ind(times_male, times_female)
+t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults)
 print(f"\n--- T-Test Results ---\nt-statistic: {t_stat}\np-value: {p_val}")
 
 # Previous runs vs times
@@ -443,6 +469,29 @@ plt.show()
 # Correlation
 corr, p_corr = stats.pearsonr(data_adults["time"], data_adults["prev_runs"])
 print(f"\n--- Correlation Test ---\ncorrelation: {corr}\np-value: {p_corr}")
+
+# Finding the median of prev runs
+median_prev_runs = data_adults["prev_runs"].median()
+print(f"\nMedian Previous Runs: {median_prev_runs}")
+
+data_adults_pr_gr = data_adults.with_columns(
+    (pl.col("prev_runs") >= median_prev_runs).alias("pr_gr")
+)
+
+print("\n--- Data with pr_gr group ---")
+print(data_adults_pr_gr.select(["prev_runs", "pr_gr"]).head())
+
+# a quick visual check
+plt.figure(figsize=(10,6))
+sns.histplot(data=data_adults_pr_gr.to_pandas(), x="prev_runs", hue="pr_gr", multiple="stack")
+plt.title("Previous Runs Split")
+plt.show()
+
+# Comparing times
+plt.figure(figsize=(10,6))
+sns.boxplot(data=data_adults_pr_gr.to_pandas(), x="time", hue="pr_gr")
+plt.title("Time by Previous Runs Group")
+plt.show()
 
 # Linear Model
 data_adults_lm = data_adults.with_columns(
