@@ -10,7 +10,7 @@ This page presents the worked solutions for the statistics tasks, showing how to
 ::: callout-warning
 ## Before you proceed...
 
-These are worked solutions. We strongly recommend attempting to debug the R and Python problem scripts in the [Tasks section](4-statistics/index.qmd) before reviewing these solutions. Learning to debug is a crucial data science skill!
+These are worked solutions. We strongly recommend attempting to debug the R and Python problem scripts in the [Tasks section](index.qmd) before reviewing these solutions. Learning to debug is a crucial data science skill!
 :::
 
 ## Task 1: Excel Data Analysis
