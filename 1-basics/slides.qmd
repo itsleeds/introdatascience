@@ -14,11 +14,19 @@ The demand for data science skills is growing rapidly:
 
 -   **High Demand:** Data scientist positions are among the fastest-growing jobs globally.
 -   **Market Growth:** The global data science market is projected to reach **$178.5 billion by 2025**.
--   **Future Outlook:**
-    -   **35% increase** in job openings projected from 2022 to 2032 (US Bureau of Labor Statistics).
-    -   **40% increase** in demand for AI and Machine Learning specialists anticipated by 2027.
 
 *Source: US Bureau of Labor Statistics, IBM, World Economic Forum*
+
+------------------------------------------------------------------------
+
+## Future Outlook
+
+The trend is expected to continue:
+
+-   **35% increase** in job openings projected from 2022 to 2032 (US Bureau of Labor Statistics).
+-   **40% increase** in demand for AI and Machine Learning specialists anticipated by 2027.
+
+*Source: US Bureau of Labor Statistics, World Economic Forum*
 
 ------------------------------------------------------------------------
 
