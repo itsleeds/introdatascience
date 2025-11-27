@@ -42,6 +42,12 @@ GitHub isn't just for storing code; it provides powerful tools for teamwork:
 
 To start using Git and GitHub, we recommend installing [GitHub Desktop](https://desktop.github.com/) or using the Git integration within your IDE (RStudio, VS Code, or Positron).
 
+::: callout-warning
+### University Data Policy
+GitHub is an excellent tool for code and open data. However, **do not** upload unpublished assessment data, sensitive research participant info, or confidential University documents to public GitHub repositories.
+:::
+
+
 For an ideal next step in your learning journey, check out the courses available at [GitHub Skills](https://skills.github.com/).
 
 ## Deep Dive into GitHub

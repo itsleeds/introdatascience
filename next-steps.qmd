@@ -40,7 +40,8 @@ These communities are invaluable:
 
 ### Share Your Work
 
-- Create a [GitHub](https://github.com/) profile for your code
+- Create a [GitHub](https://github.com/) profile for your code (use the [Student Developer Pack](https://education.github.com/pack) for free perks!)
+  - *Note: Keep university assessment data private unless authorized.*
 - Build a portfolio website with [Quarto](https://quarto.org/)
 - Write blog posts about what you learn
 - Share projects on social media (#RStats, #DataScience)
