@@ -9,7 +9,7 @@ This website provides a brief introduction to data science concepts with impleme
 ## Contents
 
 - **Prerequisites**: Required software and setup
-- **GitHub Copilot & AI Tools**: How to use AI assistants for learning and coding
+- **AI Tools & Policy**: Safe and effective use of AI (Microsoft 365 Copilot vs GitHub Copilot)
 - **Practical Exercises**: Hands-on data science tasks
 - **Next Steps**: Resources for continuing your learning journey
 
