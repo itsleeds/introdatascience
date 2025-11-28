@@ -1,0 +1,44 @@
+---
+title: "Introduction to Data Science Workbook"
+format: html
+number-sections: true
+toc: true
+---
+
+This workbook accompanies the Introduction to Data Science course. You can access the slides for each module below:
+
+- [Module 1 Slides: Basics](https://itsleeds.github.io/introds/1-basics/slides.html)
+- [Module 2 Slides: Data Manipulation](https://itsleeds.github.io/introds/2-manipulation/slides.html)
+- [Module 3 Slides: Visualisation](https://itsleeds.github.io/introds/3-visualisation/slides.html)
+
+# Prerequisites {-}
+
+{{< include _prerequisites.qmd >}}
+
+# Module 1: Basics
+
+{{< include 1-basics/_tasks.qmd >}}
+
+# Module 2: Data Manipulation
+
+{{< include 2-manipulation/_tasks.qmd >}}
+
+# Module 3: Visualisation
+
+{{< include 3-visualisation/_tasks.qmd >}}
+
+# Module 4: Statistics
+
+{{< include 4-statistics/_index.qmd >}}
+
+# Collaboration
+
+{{< include _collaboration.qmd >}}
+
+# AI Tools
+
+{{< include _ai.qmd >}}
+
+# Next Steps
+
+{{< include _next-steps.qmd >}}

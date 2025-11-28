@@ -1,0 +1,72 @@
+
+AI-powered coding assistants can significantly accelerate your data science learning journey. However, it is critical to use them safely and in compliance with University regulations.
+
+## The "Traffic Light" System
+
+The University of Leeds uses a [traffic light system](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/) to indicate how AI can be used in assessments. **Always check your specific module guidelines.**
+
+-   🔴 **Red:** No AI permitted. You must do all the work yourself.
+-   🟠 **Amber:** AI permitted as a supportive tool (e.g., for ideation, debugging, or explaining concepts) but not for generating the final output.
+-   🟢 **Green:** AI is integral to the assessment and can be used freely (with appropriate acknowledgement).
+
+## 1. The "Official" Route (Safe for Coursework)
+
+**Microsoft 365 Copilot** (Enterprise) is the University-endorsed tool.
+
+*   **Why:** This version is **private**. Your data is *not* used to train the model (see [University guidance on GenAI tools](https://generative-ai.leeds.ac.uk/intro-gen-ai/generative-ai-tools/)). This is the recommended tool for university work where AI is permitted.
+*   **Access:** Log in to [Microsoft 365](https://www.microsoft365.com) with your University credentials (`@leeds.ac.uk`).
+*   **Usage:** Use it to draft text, summarize documents, or explain code concepts securely.
+
+## 2. The "Developer" Route (For Personal Skills)
+
+**GitHub Copilot** is an industry-standard AI pair programmer.
+
+*   **Context:** While excellent for coding, the standard/student version may not have the same data protections as the University's Enterprise tools.
+*   **Usage:** Use this for **personal learning** and building your developer portfolio.
+*   **Warning:** ⚠️ **Do not** paste unpublished assessment questions, sensitive research data, or participant information into these tools.
+
+### Getting Access (Student Pack)
+
+Students can get **free access** to the GitHub Student Developer Pack (a valuable industry perk):
+
+1.  Visit [GitHub Education](https://education.github.com/)
+2.  Apply for the Student Developer Pack using your `.ac.uk` email (for verification only).
+3.  Once verified, you can install the GitHub Copilot extension in VS Code or RStudio.
+
+## Best Practices
+
+::: callout-tip
+### Writing Good Prompts
+
+-   Write clear comments describing what you want to do
+-   Use descriptive variable names
+-   Break complex tasks into smaller steps
+:::
+
+**DOs** ✅
+
+-   Use AI to understand error messages
+-   Ask AI to explain unfamiliar code
+-   Use suggestions to learn new approaches
+-   **Verify** AI-generated code before using it
+
+**DON'Ts** ❌
+
+-   Don't blindly copy-paste without understanding
+-   Don't use AI to do all your work (you won't learn!)
+-   **Don't share sensitive/personal data with AI tools**
+-   Don't assume AI code is always correct
+
+::: callout-warning
+## Critical Thinking Required
+
+AI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!
+:::
+
+## Resources
+
+-   [University of Leeds AI Guidance](https://library.leeds.ac.uk/info/1401/academic_skills/134/artificial_intelligence)
+-   [Generative AI at Leeds](https://generative-ai.leeds.ac.uk/)
+-   [AI Assessment Categories](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/)
+-   [Microsoft 365 Copilot](https://www.microsoft365.com)
+-   [GitHub Student Developer Pack](https://education.github.com/pack)

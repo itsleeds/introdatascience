@@ -1,0 +1,79 @@
+
+Congratulations on completing the practical! Here are some useful resources. 
+
+## Stack Overflow & Forums
+
+These communities are invaluable:
+
+-   [Stack Overflow](https://stackoverflow.com/) - Programming Q&A
+-   [RStudio Community](https://community.rstudio.com/) - R-specific help
+
+
+## For R
+
+- [R for Data Science (2e)](https://r4ds.hadley.nz/) - Comprehensive free book by Hadley Wickham
+- [RStudio Primers](https://posit.cloud/learn/primers) - Interactive tutorials
+- [Swirl](https://swirlstats.com/) - Learn R programming interactively
+
+## For Python
+
+- [Python for Everybody](https://www.py4e.com/) - Free course by University of Michigan
+- [Kaggle Learn](https://www.kaggle.com/learn) - Practical micro-courses
+- [DataCamp](https://www.datacamp.com/) - First course free, student discounts available
+
+**Statistics with R/Python:**
+
+- [StatQuest](https://www.youtube.com/c/joshstarmer) - Excellent YouTube channel for statistics
+- [Introduction to Statistical Learning](https://www.statlearning.com/) - Free book with R and Python code
+
+
+## Build Your Portfolio
+
+### Project Ideas
+
+1. **Analyze local transport patterns** using open transport data
+2. **Recreate published analyses** to learn techniques
+4. **Contribute to open source** R or Python packages
+
+### Share Your Work
+
+- Create a [GitHub](https://github.com/) profile for your code (use the [Student Developer Pack](https://education.github.com/pack) for free perks!)
+  - *Note: Keep university assessment data private unless authorized.*
+- Build a portfolio website with [Quarto](https://quarto.org/)
+- Write blog posts about what you learn
+- Share projects on social media (#RStats, #DataScience)
+
+## Advanced Topics to Explore
+
+Once you're comfortable with basics:
+
+### Data Science Skills
+
+- **Version Control**: Git and GitHub for collaboration
+- **Reproducible Research**: R Markdown, Quarto, Jupyter notebooks
+
+### Specialized Topics
+
+- **Spatial Data Science**: Working with spatial data (check out [geocompx.org](https://geocompx.org/))
+- **Machine Learning**: Supervised and unsupervised learning
+- **Deep Learning**: Neural networks for complex patterns
+- **Time Series Analysis**: For temporal data
+- **Network Analysis**: For transport networks and relationships
+
+
+## Final Tips
+
+::: {.callout-tip}
+## The Best Way to Learn
+**Practice, practice, practice!** Learning data science is like learning a language—you need to use it regularly to improve.
+:::
+
+::: {.callout-important}
+## Don't Get Overwhelmed
+There's a lot to learn, but you don't need to learn everything at once. Pick one area, get comfortable, then expand gradually.
+:::
+
+::: {.callout-note}
+## Stay Curious
+The field of data science is constantly evolving. Stay curious, keep learning, and don't be afraid to experiment!
+:::
