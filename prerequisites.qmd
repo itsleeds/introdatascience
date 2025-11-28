@@ -24,6 +24,7 @@ To open this project in GitHub Codespaces, click the badge below:
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
 
 **Benefits:**
+
 -   **Zero Setup:** No need to install anything on your local machine.
 -   **Consistent Environment:** Everyone uses the exact same tools and configurations.
 -   **Powerful:** Runs on cloud servers, providing ample computing resources.
@@ -40,10 +41,12 @@ This approach is recommended if you want more control over your installations an
 An **IDE** (Integrated Development Environment) provides a comprehensive workspace for coding. Popular options include:
 
 **For R:**
+
 - **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
 - **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both R and Python (beta)
 
 **For multiple languages:**
+
 - **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for R, Python, and more
 
 #### 2. Programming Languages
