@@ -1,0 +1,23 @@
+
+In this section, we will practice data wrangling using R and the `dplyr` package from the `tidyverse`. Follow the steps below to manipulate and explore a dataset.
+
+1. Create a new R script in your `scripts` folder and name it `2-data-wrangling-and-visualization.R`.
+2. Load the `tidyverse` package by adding the following line at the top of your script:
+   ```R
+   library(tidyverse)
+   ```
+3. Download the `crashes` file ([here](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv)) and save it in your `data` folder.
+4. Read the `crashes` dataset into R using the `read_csv()` function and assign it to a variable named `crashes`:
+   ```R
+   crashes <- read_csv("data/crashes.csv")
+   ```
+
+5. Explore the dataset:
+   - Use the `head()` function to view the first few rows of the dataset.
+   - Use the `str()` function to understand the structure of the dataset.
+   - Use the `summary()` function to get a summary of the dataset.
+6. Data Wrangling Tasks:
+   - Create a new data.frame named `crashes_filtered` that includes only cyclists.
+   - Create a new data.frame named `crashes_dark` that includes only crashes that occurred in dark conditions.
+   - Create a new data.frame named `crashes_dark_cyclist` that includes only crashes that involved cyclists **and** occurred in dark conditions.
+   - Create a summary table named `crashes_by_type` that shows the median age by casualty type.
